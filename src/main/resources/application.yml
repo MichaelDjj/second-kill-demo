@@ -1,0 +1,37 @@
+spring:
+  # thymeleaf配置
+  thymeleaf:
+    #缓存
+    cache: false
+  # db
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/seckill?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: root
+    password: 123@abcd
+    ## mysql 5.x
+    #    driver-class-name: com.mysql.jdbc.Driver
+    ## mysql 8.x
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      #最小空闲连接数5
+      minimum-idle: 5
+      #最大连接数10
+      maximum-pool-size: 10
+      #空闲连接最大存活时间10分钟
+      idle-timeout: 600000
+      #连接超时30s
+      connection-timeout: 30000
+      #测试心跳连接
+      connection-test-query: select 1
+
+#mybatis-plus配置
+mybatis-plus:
+  #Mapper.xml文件位置
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  #mybatis类型返回别名
+  type-aliases-package: org.michael.secondkilldemo.pojo
+
+
+logging:
+  level:
+    org.michael.secondkilldemo: debug
